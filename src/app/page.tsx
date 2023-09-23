@@ -28,8 +28,14 @@ export default async function Home() {
   const users = await getAllUsers()
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="grid grid-cols-3 gap-3">
+    <main className="flex min-h-screen flex-col items-center justify-between p-10 w-full max-w-5xl m-auto">
+      <header id="sectionHeader" className="flex flex-col w-full h-1/4">
+        <h1 className="text-4xl font-bold text-neutral-100">Users</h1>
+        <p className="text-neutral-300 text-sm italic text-opacity-40">
+          This page is only accessible to authenticated users.
+        </p>
+      </header>
+      <div className="grid grid-cols-3 gap-3 w-full mt-8">
         { users.map((user: any) => (
           <UserListItem 
             key={user.id} 
